@@ -37,3 +37,13 @@ body {
   top: 50%;
   left: 0; 
 }
+
+.rotate-180 {
+  transform: rotate(270deg);
+  transform-origin: center;
+  margin-left: -110px;
+}
+
+#path21{
+  display: none;
+}

@@ -1,12 +1,49 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { searchIcon } from "./SVG";
+import { gsap } from "gsap";
 
 const Nav = () => {
+  const svgRef = useRef(null);
+  const colors = ['#FF0000', '#00FF00', '#0000FF']; // Add more colors if needed
+
+  useEffect(() => {
+    const svg = svgRef.current;
+
+    // Color Change Animation
+    const colorTimeline = gsap.timeline({ repeat: -1 });
+    colors.forEach((color) => {
+      colorTimeline.to(svg, {
+        fill: color,
+        duration: 1,
+        ease: 'power1.inOut',
+      });
+    });
+
+    // Pulsating Animation
+    gsap.from(svg, {
+      opacity: 0,
+      y: -50,
+      duration: 1,
+      ease: 'power2.out',
+    });
+
+    gsap.to(svg, {
+      scale: 1.1,
+      repeat: -1,
+      yoyo: true,
+      duration: 1,
+    });
+
+    return () => {
+      colorTimeline.kill(); // Kill the color animation on unmount
+    };
+  }, []);
   return (
     <div className=" flex Nav items-center  justify-between w-full px-10 pt-10  ">
       <svg
+        ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"
         width="158"
         height="29"
