@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,11 +18,22 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
+  /* background-image: url('https://res.cloudinary.com/drlfxqsvg/image/upload/v1692033104/Demo_vo64dx.svg'); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  /* position: relative; */
+  font-family: "Chakra Petch", sans-serif;
+  color: black;
+  margin: 0;
+}
+
+.sideNav {
+  /* transform: rotate(270deg);  */
+ position: absolute;
+  top: 50%;
+  left: 0; 
 }
