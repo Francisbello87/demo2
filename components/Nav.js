@@ -8,38 +8,38 @@ const Nav = () => {
   const svgRef = useRef(null);
   const colors = ['#FF0000', '#00FF00', '#0000FF']; // Add more colors if needed
 
-  useEffect(() => {
-    const svg = svgRef.current;
+  // useEffect(() => {
+  //   const svg = svgRef.current;
 
-    // Color Change Animation
-    const colorTimeline = gsap.timeline({ repeat: -1 });
-    colors.forEach((color) => {
-      colorTimeline.to(svg, {
-        fill: color,
-        duration: 1,
-        ease: 'power1.inOut',
-      });
-    });
+  //   // Color Change Animation
+  //   const colorTimeline = gsap.timeline({ repeat: -1 });
+  //   colors.forEach((color) => {
+  //     colorTimeline.to(svg, {
+  //       fill: color,
+  //       duration: 1,
+  //       ease: 'power1.inOut',
+  //     });
+  //   });
 
-    // Pulsating Animation
-    gsap.from(svg, {
-      opacity: 0,
-      y: -50,
-      duration: 1,
-      ease: 'power2.out',
-    });
+  //   // Pulsating Animation
+  //   gsap.from(svg, {
+  //     opacity: 0,
+  //     y: -50,
+  //     duration: 1,
+  //     ease: 'power2.out',
+  //   });
 
-    gsap.to(svg, {
-      scale: 1.1,
-      repeat: -1,
-      yoyo: true,
-      duration: 1,
-    });
+  //   gsap.to(svg, {
+  //     scale: 1.1,
+  //     repeat: -1,
+  //     yoyo: true,
+  //     duration: 1,
+  //   });
 
-    return () => {
-      colorTimeline.kill(); // Kill the color animation on unmount
-    };
-  }, []);
+  //   return () => {
+  //     colorTimeline.kill(); // Kill the color animation on unmount
+  //   };
+  // }, []);
   return (
     <div className=" flex Nav items-center  justify-between w-full px-10 pt-10  ">
       <svg
