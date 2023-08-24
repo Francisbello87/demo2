@@ -11,31 +11,8 @@ const Slider = ({ min, max, value, step }) => {
   return (
     <div className=" bg-white max-w-[] sliders">
 
-    {/* // <div class="fractional-slider">
-    //   <input
-    //     type="range"
-    //     min={min}
-    //     max={max}
-    //     step={step}
-    //     value={valueState}
-    //     onChange={updateValue}
-    //   />
-    //   <output>
-    //     {valueState}
-    //   </output>
-    // </div */}
-    {/* <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span>
-    <span>0</span> */}
-    <Sliders/>
+
+      <Sliders />
     </div>
   );
 };

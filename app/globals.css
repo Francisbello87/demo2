@@ -91,3 +91,9 @@ body {
   height: 162.68px;
   flex-shrink: 0;
 }
+.image-container {
+  max-width: 200px; 
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}

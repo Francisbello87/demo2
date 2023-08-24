@@ -1,6 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
-import { gsap  } from "gsap";
+import { gsap } from "gsap";
 import { Power2 } from "gsap";
 import Nav from "@/components/Nav";
 import SideNav from "@/components/SideNav";
@@ -17,60 +17,55 @@ export default function Home() {
   const imageRef = useRef(null);
   const colors = ["#214176", "#20EBF8", "#E5E8E7", "#ef53cd"];
 
-  
- 
   const handleTextClick = () => {
-   
     const textAnimation = gsap.timeline({ repeat: -1, yoyo: true });
     textAnimation.to(textRef.current, {
-      color: colors[3], 
-      scale: 1.1, 
+      color: colors[3],
+      scale: 1.1,
       ease: Power2.easeInOut,
     });
 
     const svgAnimation = gsap.timeline({ repeat: -1, yoyo: true });
     svgAnimation.to(["#path1", "#path2"], {
-      stroke: colors[3], 
+      stroke: colors[3],
       duration: 1,
       ease: Power2.easeInOut,
-    })
-    
+    });
 
     const imageAnimation = gsap.timeline({ paused: true });
     imageAnimation
       .to(imageRef.current, {
-        scale: 1.1, 
-        opacity: 0.8, 
+        scale: 1.1,
+        opacity: 0.8,
         duration: 0.5,
         ease: Power2.easeInOut,
       })
       .to(imageRef.current, {
-        scale: 1, 
-        opacity: 1, 
+        scale: 1,
+        opacity: 1,
         duration: 0.5,
         ease: Power2.easeInOut,
       })
       .to(imageRef.current, {
-        scale: 1.05, 
+        scale: 1.05,
         duration: 0.3,
         ease: Power2.easeInOut,
       })
       .to(imageRef.current, {
-        scale: 1, 
+        scale: 1,
         duration: 0.3,
         ease: Power2.easeInOut,
       });
 
-    imageAnimation.play(); 
+    imageAnimation.play();
   };
 
   useEffect(() => {
-    handleTextClick(); // Start text, SVG, and image animations on component mount
+    handleTextClick();
   }, []);
 
-
   return (
-    <main 
+    <main
       className="min-h-screen w-full relative bg-[#030014]"
       style={{
         backgroundImage: `url(${BG.src})`,
@@ -83,7 +78,7 @@ export default function Home() {
         <LineSVG />
       </div>
       <div className=" absolute top-0 left-[491.3px]">
-        <LineSVGDown/>
+        <LineSVGDown />
       </div>
       <Nav />
       <SideNav />
@@ -127,9 +122,10 @@ export default function Home() {
           </div>
           <Image ref={imageRef} id="bass-image" src={Bass} />
         </div>
-        <div className=" mt-48">
-          {/* <Image src={Scroll} /> */}
-          <Slider/>
+        <div className="mt-48 over ">
+          <div className=" max-w-[450px] overflow-x-auto scrollbar-none ">
+            <Slider />
+          </div>
         </div>
       </div>
     </main>
