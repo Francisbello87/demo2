@@ -6,16 +6,24 @@ import Nav from "@/components/Nav";
 import SideNav from "@/components/SideNav";
 import Image from "next/image";
 import Bass from "../assets/I.png";
-import Scroll from "../assets/Group 427320472.svg";
-import { LineSVG, BgBox, BgBG, LineSVGDown } from "@/components/SVG";
+import { LineSVG, LineSVGDown, Slicer } from "@/components/SVG";
 import BG from "../assets/bg234.svg";
-import Slider from "@/components/Slider";
 
 export default function Home() {
   const textRef = useRef(null);
   const svgRef = useRef(null);
   const imageRef = useRef(null);
+  const dotRef = useRef(null);
   const colors = ["#214176", "#20EBF8", "#E5E8E7", "#ef53cd"];
+
+  useEffect(() => {
+    if (dotRef.current) {
+      const elemRect = dotRef.current.getBoundingClientRect();
+      const top = elemRect.top;
+      const left = elemRect.left;
+      console.log("Top:", top, "Left:", left);
+    }
+  }, []);
 
   const handleTextClick = () => {
     const textAnimation = gsap.timeline({ repeat: -1, yoyo: true });
@@ -120,11 +128,11 @@ export default function Home() {
               Click to feel the Bass
             </p>
           </div>
-          <Image ref={imageRef} id="bass-image" src={Bass} />
+          <Image ref={imageRef} id="bass-image" src={Bass} alt="" />
         </div>
-        <div className="mt-48 over ">
-          <div className=" max-w-[450px] overflow-x-auto scrollbar-none ">
-            <Slider />
+        <div className="mt-48 over flex items-center justify-center flex-col ">
+          <div>
+            <Slicer />
           </div>
         </div>
       </div>
